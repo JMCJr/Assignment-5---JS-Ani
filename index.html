@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Animation</title>
+	
+	<style type="text/css">
+	#map {
+		position: absolute;
+		height: 780px;
+		}
+	#sonic1 {
+		position: absolute;
+		width: 500px;
+	}
+
+	#tailsFly {
+		position: fixed;
+		width: 300px;
+		margin-left: 600px;
+		/*margin-left: 200px;*/
+	}
+
+
+
+	body {
+
+	}
+
+
+	</style>
+</head>
+<body>
+	<p>
+	<button onclick="move()">start</button>
+	</p>
+	
+	<div id="container" >
+
+		<img id="map" src="FULL-mario-BG.jpg">
+		<img id="sonic1" src="Gifs/sonic-logo.gif" onclick="change()">
+		<img id="tailsFly" src="Gifs/sonic-tails-fly.gif">
+	</div>
+
+
+
+<script type="text/javascript">
+
+	var noise1 = new Audio("Audio/Sonic-theme.mp3");
+		noise1.loop = true;
+
+	var noise2 = new Audio("Audio/Sonic-EVIL-theme.mp3");
+		noise1.loop = true;
+
+	var noise3 = new Audio("Audio/Steven-U-Combo.mp3");
+		noise1.loop = true;
+	
+	function change() {
+		document.getElementById("sonic1").src="Gifs/sonic-evil-logo.gif";
+		noise1.play();
+
+	}
+
+
+	function move() {
+		var elem = document.getElementById("map");
+		var elem2 = document.getElementById("tailsFly")
+		var lpos = 0;
+		var tpos = 0;
+		var id = setInterval(frame, 1);
+		noise1.pause();
+		noise2.play();
+
+			function frame() {
+				if (lpos == 12800) {
+					clearInterval(id);
+				} else { 
+					lpos--;
+					elem.style.left = lpos + 'px';
+				}
+				function move2() {
+					if (tpos == 300) {
+					elem2.style.top = tpos + 'px';
+					}
+			}
+		}
+	}
+
+
+
+</script>
+
+</body>
+</html>
